@@ -31,8 +31,8 @@
 		};
 
 		const button = document.querySelector('button');
-		button.setAttribute('data-group', params.group);
-		button.setAttribute('data-item', params.item);
+		button.setAttribute('data-group', JSON.stringify(params.group));
+		button.setAttribute('data-item', JSON.stringify(params.item));
 		button.setAttribute('data-permalink', params.permalink);
 	</script>
 
