@@ -77,11 +77,11 @@
 			}
 
 			sendParentResizeMessage = (resize) => {
-				event.source.postMessage(JSON.stringify({
+				event.source.postMessage({
 					channelId: channelId,
 					event: 'resize',
 					resize: resize,
-				}), parentMessageEvent.origin);
+				}, event.origin);
 			}
 		}, false);
 	</script>
