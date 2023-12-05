@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Harvest Button</title>
+</head>
+<body>
+	<button
+		aria-label="track progress on Harvest"
+		data-group
+		data-item
+		data-permalink
+	></button>
+
+	<script>
+		const searchParams = new URLSearchParams(window.location.search);
+
+		window._harvestPlatformConfig = {
+			'applicationName': searchParams.get('applicationName'),
+		};
+
+		const button = document.querySelector('button');
+		button.setAttribute('data-group', searchParams.get('group'));
+		button.setAttribute('data-item', searchParams.get('item'));
+		button.setAttribute('data-permalink', searchParams.get('permalink'));
+	</script>
+
+	<script src="https://platform.harvestapp.com/assets/platform.js"></script>
+</body>
+</html>
