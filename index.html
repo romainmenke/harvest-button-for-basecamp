@@ -22,16 +22,18 @@
 	></button>
 
 	<script>
-		const searchParams = new URLSearchParams(window.location.search);
+		const hash = window.location.hash.slice(1);
+		const params = JSON.parse(window.decodeURIComponent(window.atob(hash)));
+		const searchParams = new URLSearchParams(hash);
 
 		window._harvestPlatformConfig = {
-			'applicationName': searchParams.get('applicationName'),
+			'applicationName': params.applicationName,
 		};
 
 		const button = document.querySelector('button');
-		button.setAttribute('data-group', searchParams.get('group'));
-		button.setAttribute('data-item', searchParams.get('item'));
-		button.setAttribute('data-permalink', searchParams.get('permalink'));
+		button.setAttribute('data-group', params.group);
+		button.setAttribute('data-item', params.item);
+		button.setAttribute('data-permalink', params.permalink);
 	</script>
 
 	<script src="https://platform.harvestapp.com/assets/platform.js"></script>
