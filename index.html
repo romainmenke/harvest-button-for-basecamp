@@ -21,6 +21,7 @@
 		data-permalink
 	></span>
 
+	<!-- Configure button -->
 	<script>
 		const hash = window.location.hash.slice(1);
 		const params = JSON.parse(window.decodeURIComponent(window.atob(hash)));
@@ -36,6 +37,53 @@
 		button.setAttribute('data-permalink', params.permalink);
 	</script>
 
+	<!-- Load Harvest script -->
 	<script src="https://platform.harvestapp.com/assets/platform.js"></script>
+
+	<!-- Messaging -->
+	<script>
+		const channelId = 'a5b48350-8b05-478b-8f69-0671751a42b5';
+
+		var sendParentResizeMessage = (resize) => {
+			console.log(resize);
+		};
+
+		window.addEventListener("message", (event) => {
+			if (event.origin !== 'https://platform.harvestapp.com') {
+				return;
+			}
+
+			if (event.data.type !== 'frame:resize') {
+				sendParentResizeMessage({
+					mode: 'fullscreen'
+				});
+				return;
+			}
+
+			if (event.data.type !== 'frame:close') {
+				sendParentResizeMessage({
+					mode: 'button'
+				});
+				return;
+			}
+
+			console.log(event);
+		});
+
+		// Listen for postMessage events.
+		window.addEventListener("message", (event) => {
+			if (event.data.channelId !== channelId) {
+				return;
+			}
+
+			sendParentResizeMessage = (resize) => {
+				event.source.postMessage(JSON.stringify({
+					channelId: channelId,
+					event: 'resize',
+					resize: resize,
+				}), parentMessageEvent.origin);
+			}
+		}, false);
+	</script>
 </body>
 </html>
