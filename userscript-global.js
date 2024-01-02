@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name        Harvest Button for Basecamp
-// @version     1.0.0
+// @name        Harvest Button for Basecamp (global)
+// @version     1.0.1
 // @updateURL   https://raw.githubusercontent.com/romainmenke/harvest-button-for-basecamp/main/userscript-global.js
 // @downloadURL https://raw.githubusercontent.com/romainmenke/harvest-button-for-basecamp/main/userscript-global.js
-// @description Add a Harvest Button to Basecamp ToDos
+// @description Add a Harvest Button to Basecamp ToDos. This doesn't isolate harvest from the page in iframes.
 // @author      Romain Menke
 // @include     https://basecamp.com/*
 // @grant       none
