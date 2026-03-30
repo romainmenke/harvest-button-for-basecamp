@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        Harvest Button for Basecamp
-// @version     1.0.2
+// @version     1.0.3
 // @updateURL   https://raw.githubusercontent.com/romainmenke/harvest-button-for-basecamp/main/userscript.js
 // @downloadURL https://raw.githubusercontent.com/romainmenke/harvest-button-for-basecamp/main/userscript.js
 // @description Add a Harvest Button to Basecamp ToDos
