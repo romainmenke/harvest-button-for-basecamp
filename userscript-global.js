@@ -97,7 +97,7 @@ class BasecampHelpers {
 
 		function checkScrollPosition() {
 			if (window.scrollY > 220) {
-				elNotice.style.cssText = "position: fixed; top: 0; left: 50px;";
+				elNotice.style.cssText = "position: fixed; top: 0; right: 50px;";
 			} else {
 				elNotice.style.cssText = "position: relative; top: auto; left: auto; transform: none;";
 			}
